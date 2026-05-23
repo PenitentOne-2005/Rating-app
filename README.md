@@ -1,4 +1,3 @@
-[Rating-app-README.md](https://github.com/user-attachments/files/27803511/Rating-app-README.md)
 # 📊 Rating App
 
 > 🚧 **In development**
