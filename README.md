@@ -1,42 +1,41 @@
 [Rating-app-README.md](https://github.com/user-attachments/files/27803511/Rating-app-README.md)
 # 📊 Rating App
 
-> 🚧 **В разработке**
+> 🚧 **In development**
 
-Приложение для рейтингования курсов, построенное на Next.js и TypeScript.
+Course rating app, built on Next.js and TypeScript.
 
 ## Tech Stack
 
-- **Next.js** — SSR, роутинг, API routes
-- **TypeScript** — типизация
-- **CSS Modules** — стилизация компонентов
+- **Next.js** — SSR, routing, API routes
+- **TypeScript** — typing
+- **CSS Modules** — component styling
 
-## Структура проекта
+## Project structure
 
 ```
-├── app/          # Страницы и layout (Next.js App Router)
+├── app/          # Pages and layout (Next.js App Router)
 ├── api/          # API routes
-├── components/   # UI компоненты
-├── helpers/      # Вспомогательные функции
-├── interfaces/   # TypeScript интерфейсы
+├── components/   # UI components
+├── helpers/      # Auxiliary functions
+├── interfaces/   # TypeScript interfaces
 ```
 
-## Запуск
+## Launch
 
 ```bash
-# Установить зависимости
+# Install dependencies
 npm install
 
-# Запустить в режиме разработки
+# Run in development mode
 npm run dev
 ```
 
-Открой [http://localhost:3000](http://localhost:3000) в браузере.
+Open [http://localhost:3000](http://localhost:3000) in the browser.
 
-## Планируется
+## Planned
 
-- [ ] Авторизация пользователей
-- [ ] Добавление и редактирование курсов
-- [ ] Система оценок и отзывов
-- [ ] Фильтрация и поиск по курсам
-- [ ] Деплой на Vercel
+- [ ] Adding and editing courses
+- [ ] Rating and review system
+- [ ] Filtering and searching by courses
+- [ ] Deploy to Vercel
