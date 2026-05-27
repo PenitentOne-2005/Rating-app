@@ -1,11 +1,11 @@
 'use client';
 
-import React, { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { FirstLevel } from './utils';
 import styles from './Menu.module.css';
-import FirstLevel from './utils/FirstLevel';
 
-const Menu: FC = () => {
+const Menu = () => {
   const pathName = usePathname();
   const [isClient, setIsClient] = useState(false);
 

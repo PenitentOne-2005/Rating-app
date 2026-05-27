@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
-import { HeaderProps } from './Header.props';
+import type { HeaderProps } from './Header.props';
 import styles from './Header.module.css';
 
-const Header: FC<HeaderProps> = ({ ...props }): JSX.Element => {
+const Header = ({ ...props }: HeaderProps) => {
   return (
     <header className={styles.header} {...props}>
       Header

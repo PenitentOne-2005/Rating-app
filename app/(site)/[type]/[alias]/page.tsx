@@ -1,9 +1,6 @@
-import React from 'react';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getPage } from '@/api/page';
-import { getMenu } from '@/api/menu';
-import { getProducts } from '@/api/product';
+import { getPage, getMenu, getProducts } from '@/api';
 
 export const metadata: Metadata = {
   title: 'Products Page',

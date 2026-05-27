@@ -1,9 +1,8 @@
-import React, { FC } from 'react';
 import { format } from 'date-fns';
-import { FooterProps } from './Footer.props';
+import type { FooterProps } from './Footer.props';
 import styles from './Footer.module.css';
 
-const Footer: FC<FooterProps> = ({ ...props }): JSX.Element => {
+const Footer = ({ ...props }: FooterProps) => {
   return (
     <footer className={styles.footer} {...props}>
       <p className={styles.rules}>

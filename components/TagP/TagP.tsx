@@ -1,13 +1,8 @@
-import React, { FC } from 'react';
-import { PtagProps } from './TagP.props';
+import type { PtagProps } from './TagP.props';
 import cn from 'classnames';
 import styles from './TagP.module.css';
 
-const TagP: FC<PtagProps> = ({
-  size = 'medium',
-  children,
-  ...props
-}): JSX.Element => {
+const TagP = ({ size = 'medium', children, ...props }: PtagProps) => {
   const fonts = cn(styles.text, {
     [styles.small]: size == 'small',
     [styles.medium]: size == 'medium',

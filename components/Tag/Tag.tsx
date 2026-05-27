@@ -1,15 +1,14 @@
-import React, { FC } from 'react';
-import { TagProps } from './Tag.props';
+import type { TagProps } from './Tag.props';
 import cn from 'classnames';
 import styles from './Tag.module.css';
 
-const Tag: FC<TagProps> = ({
+const Tag = ({
   size = 'small',
   children,
   href,
   color = 'ghost',
   ...props
-}): JSX.Element => {
+}: TagProps) => {
   const classes = cn(styles.tag, {
     [styles.small]: size == 'small',
     [styles.medium]: size == 'medium',

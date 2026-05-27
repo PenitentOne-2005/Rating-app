@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SearchItem = () => {
   return <div>SearchItem</div>;
 };

@@ -1,15 +1,14 @@
-import React, { FC } from 'react';
+import type { ButtonProps } from './Button.props';
 import cn from 'classnames';
-import { ButtonProps } from './Button.props';
 import ArrowIcon from './arrow.svg';
 import styles from './Button.module.css';
 
-const Button: FC<ButtonProps> = ({
+const Button = ({
   appearance,
   children,
   arrow = 'none',
   ...props
-}): JSX.Element => {
+}: ButtonProps) => {
   const classes = {
     [styles.down]: arrow == 'down',
     [styles.right]: arrow == 'right',

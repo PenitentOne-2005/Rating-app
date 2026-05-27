@@ -1,4 +1,4 @@
-import { FirstLevelMenuItem } from '@/interfaces/menu.interface';
+import type { FirstLevelMenuItem } from '@/interfaces/menu.interface';
 import { TopLevelCategory } from '@/interfaces/page.interface';
 import CoursesIcon from './icons/courses.svg';
 import BooksIcon from './icons/books.svg';

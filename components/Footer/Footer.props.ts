@@ -1,4 +1,6 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface FooterProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {}
+export type FooterProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLElement>,
+  HTMLElement
+>;

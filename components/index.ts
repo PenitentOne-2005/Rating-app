@@ -1,5 +1,9 @@
-export * from './Htag/Htag';
-export * from './Button/Button';
-export * from './TagP/TagP';
-export * from './Tag/Tag';
-export * from './Rating/Rating';
+export { default as Button } from './Button';
+export { default as Footer } from './Footer';
+export { default as Header } from './Header';
+export { default as Htag } from './Htag';
+export { default as Menu } from './Menu';
+export { default as Rating } from './Rating';
+export { default as Sidebar } from './Sidebar';
+export { default as Tag } from './Tag';
+export { default as TagP } from './TagP';

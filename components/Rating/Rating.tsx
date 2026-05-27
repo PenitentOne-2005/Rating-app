@@ -1,15 +1,15 @@
 'use client';
 
-import React, { FC, KeyboardEvent, useState } from 'react';
-import useRating from './hooks/useRating';
-import { RatingProps } from './Rating.props';
+import { type KeyboardEvent, useState } from 'react';
+import type { RatingProps } from './Rating.props';
+import { useRating } from './hooks';
 
-const Rating: FC<RatingProps> = ({
+const Rating = ({
   isEditable = false,
   rating,
   setRating,
   ...props
-}): JSX.Element => {
+}: RatingProps) => {
   const [displayRating, setDisplayRating] = useState<number>(rating);
 
   const changeDisplay = (i: number) => {

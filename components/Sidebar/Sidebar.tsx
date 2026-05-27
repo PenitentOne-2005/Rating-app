@@ -1,9 +1,8 @@
-import React, { FC } from 'react';
-import { SidebarProps } from './Sidebar.props';
+import type { SidebarProps } from './Sidebar.props';
+import { Menu } from '../index';
 import styles from './Sidebar.module.css';
-import Menu from '../Menu/Menu';
 
-const Sidebar: FC<SidebarProps> = ({ ...props }): JSX.Element => {
+const Sidebar = ({ ...props }: SidebarProps) => {
   return (
     <aside className={styles.sidebar} {...props}>
       <Menu />
