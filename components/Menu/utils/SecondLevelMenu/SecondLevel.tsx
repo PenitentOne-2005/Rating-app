@@ -6,7 +6,7 @@ import type { SecondLevelProps } from './interface';
 import { getMenu } from '@/api';
 import { ThirdLevel } from '../index';
 import cn from 'classnames';
-import styles from './styles/utils.module.css';
+import styles from '../styles/utils.module.css';
 
 const SecondLevel = ({ menuItem, pathName }: SecondLevelProps) => {
   const [menu, setMenu] = useState<MenuItem[]>([]);

@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import type { useRatingProps } from './useRating.props';
-import StarIcon from '../star.svg';
+import StarIcon from '@/components/Rating/star.svg';
 import cn from 'classnames';
-import styles from '../Rating.module.css';
+import styles from '@/components/Rating/Rating.module.css';
 
 const useRating = (data: useRatingProps) => {
   const {

@@ -3,7 +3,7 @@ import type { FirstLevelProps } from './interface';
 import { SecondLevel } from '../index';
 import { firstLevelMenu } from '@/helpers';
 import cn from 'classnames';
-import styles from './styles/utils.module.css';
+import styles from '../styles/utils.module.css';
 
 const FirstLevel = ({ pathName }: FirstLevelProps) => {
   const firstCategory = firstLevelMenu[0].id; // Предполагаем, что первый элемент всегда актуален
