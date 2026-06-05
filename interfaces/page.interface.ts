@@ -27,6 +27,7 @@ export interface TopPageModel {
   alias: string;
   title: string;
   category: string;
+  description?: string;
   seoText?: string;
   tagsTitle: string;
   metaTitle: string;

@@ -2,15 +2,23 @@ import { API } from '@/app/api';
 import type { getPageProps } from './interface';
 
 const getPage: getPageProps = async (alias) => {
-  const res = await fetch(API.topPage.byAlias + alias, {
-    next: { revalidate: 10 },
-  });
+  try {
+    const res = await fetch(`${API.pages}?alias=${alias}`, {
+      method: 'GET',
+      next: { revalidate: 10 },
+    });
 
-  if (!res.ok) {
+    if (!res.ok) {
+      return null;
+    }
+
+    const pages = await res.json();
+
+    return pages.length > 0 ? pages[0] : null;
+  } catch (error) {
+    console.error(error);
     return null;
   }
-
-  return res.json();
 };
 
 export default getPage;
