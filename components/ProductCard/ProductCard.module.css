@@ -1,0 +1,175 @@
+.card {
+  display: grid;
+  grid-template-columns: [logo] 70px [main] 1fr [price] auto [credit] auto [rating] auto;
+  gap: 16px 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Элементы сетки */
+.logo {
+  grid-column: logo;
+  width: 70px;
+  height: 70px;
+  background: #3b82f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.mainInfo {
+  grid-column: main;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a202c;
+  margin: 0;
+}
+
+.tagWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.tag {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #4a5568;
+}
+
+/* Блоки с ценниками */
+.priceBlock,
+.creditBlock,
+.ratingBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.priceBlock {
+  grid-column: price;
+  text-align: right;
+}
+.creditBlock {
+  grid-column: credit;
+  text-align: right;
+}
+.ratingBlock {
+  grid-column: rating;
+  text-align: right;
+}
+
+.value {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a202c;
+}
+
+.label {
+  font-size: 12px;
+  color: #718096;
+  margin-top: 4px;
+}
+
+.oldPrice {
+  font-size: 12px;
+  text-decoration: line-through;
+  color: #a0aec0;
+  margin-left: 8px;
+}
+
+/* Разделитель и описание */
+.divider {
+  grid-column: logo / span 5;
+  border-top: 1px solid #edf2f7;
+  margin: 8px 0;
+}
+
+.description {
+  grid-column: logo / span 5;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* Преимущества и характеристики */
+.features {
+  grid-column: logo / span 5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  font-size: 14px;
+}
+
+.charList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.charItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.charName {
+  font-weight: bold;
+  color: #1a202c;
+}
+
+.charDots {
+  flex-grow: 1;
+  border-bottom: 1px dotted #cbd5e0;
+  margin: 0 8px;
+}
+
+.charValue {
+  color: #2d3748;
+}
+
+.prosCons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.proBlock {
+  border-left: 3px solid #10b981;
+  padding-left: 12px;
+}
+
+.conBlock {
+  border-left: 3px solid #ef4444;
+  padding-left: 12px;
+}
+
+.blockTitle {
+  font-weight: bold;
+  color: #1a202c;
+  margin-bottom: 4px;
+}
+
+/* Кнопки */
+.actions {
+  grid-column: logo / span 5;
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
