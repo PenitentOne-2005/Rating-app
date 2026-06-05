@@ -1,0 +1,23 @@
+.header:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.description {
+  font-size: 16px;
+  color: '#4A5568';
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
