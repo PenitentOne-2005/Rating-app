@@ -1,7 +1,7 @@
 import { API } from '@/app/api';
 import type { getProductsProps } from './interface';
 
-const getProducts: getProductsProps = async (category) => {
+const getProducts: getProductsProps = async (alias) => {
   try {
     const res = await fetch(API.pages, {
       method: 'GET',
@@ -14,7 +14,7 @@ const getProducts: getProductsProps = async (category) => {
 
     const pages = await res.json();
 
-    const targetPage = pages.find((page: any) => page.category === category);
+    const targetPage = pages.find((page: any) => page.alias === alias);
 
     return targetPage && targetPage.products ? targetPage.products : [];
   } catch (error) {

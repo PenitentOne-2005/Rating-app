@@ -22,6 +22,7 @@ export interface ProductModel {
   credit: number;
   oldPrice: number;
   description: string;
+  rating: number;
   characteristics: ProductCharacteristic[];
   createdAt: Date;
   updatedAt: Date;
