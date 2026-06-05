@@ -1,14 +1,22 @@
-import { TopLevelCategory } from './page.interface';
+import type { JSX } from 'react';
+import type { TopLevelCategory } from './page.interface';
+
+export interface MockMenuItem {
+  id: string;
+  firstCategory: TopLevelCategory;
+  alias: string;
+  title: string;
+}
 
 export interface PageItem {
   alias: string;
   title: string;
-  _id: string;
+  id: string;
   category: string;
 }
 
 export interface MenuItem {
-  _id: {
+  id: {
     secondCategory: string;
   };
   isOpened?: boolean;

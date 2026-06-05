@@ -1,3 +1,5 @@
+import type { ProductModel } from './product.interface';
+
 export enum TopLevelCategory {
   Courses,
   Services,
@@ -5,36 +7,11 @@ export enum TopLevelCategory {
   Products,
 }
 
-export interface TopPageAdvantage {
-  _id: string;
-  title: string;
-  description: string;
-}
-
-export interface HhData {
-  _id: string;
-  count: number;
-  juniorSalary: number;
-  middleSalary: number;
-  seniorSalary: number;
-  updatedAt: Date;
-}
-
 export interface TopPageModel {
-  tags: string[];
-  _id: string;
-  secondCategory: string;
+  id: string;
   alias: string;
   title: string;
   category: string;
-  description?: string;
-  seoText?: string;
-  tagsTitle: string;
-  metaTitle: string;
-  metaDescription: string;
-  firstCategory: TopLevelCategory;
-  advantages?: TopPageAdvantage[];
-  createdAt: Date;
-  updatedAt: Date;
-  hh?: HhData;
+  description: string;
+  products: ProductModel[];
 }

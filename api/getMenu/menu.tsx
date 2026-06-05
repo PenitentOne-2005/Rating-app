@@ -1,4 +1,5 @@
 import { API } from '@/app/api';
+import type { MockMenuItem } from '@/interfaces';
 import type { getMenuProps } from './interface';
 
 const getMenu: getMenuProps = async (firstCategory) => {
@@ -15,17 +16,17 @@ const getMenu: getMenuProps = async (firstCategory) => {
     const mockDataFromApi = await res.json();
 
     const filtered = mockDataFromApi.filter(
-      (item: any) => item.firstCategory === firstCategory,
+      (item: MockMenuItem) => item.firstCategory === firstCategory,
     );
 
-    return filtered.map((item: any) => ({
-      _id: {
+    return filtered.map((item: MockMenuItem) => ({
+      id: {
         secondCategory: item.title,
       },
       isOpened: false,
       pages: [
         {
-          _id: item.id,
+          id: item.id,
           alias: item.alias,
           title: item.title,
           category: item.title,

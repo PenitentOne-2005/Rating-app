@@ -1,8 +1,9 @@
 export { generateMetadata } from './generateMetadata';
 
 import { notFound } from 'next/navigation';
-import { getPage, getProducts } from '@/api';
+import { getPage } from '@/api';
 import { ProductCard } from '@/components';
+import classes from './page.module.css';
 
 const Courses = async ({ params }: { params: { alias: string } }) => {
   const { alias } = await params;
@@ -16,7 +17,7 @@ const Courses = async ({ params }: { params: { alias: string } }) => {
     notFound();
   }
 
-  const products = await getProducts(alias);
+  const products = page.products || [];
 
   if (!products || products.length === 0) {
     return (
@@ -32,18 +33,14 @@ const Courses = async ({ params }: { params: { alias: string } }) => {
 
   return (
     <>
-      <header style={{ marginBottom: '30px' }}>
-        <h1
-          style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '10px' }}
-        >
-          {page.title}
-        </h1>
-        <p style={{ color: '#4A5568', fontSize: '16px' }}>{page.description}</p>
+      <header className={classes.header}>
+        <h1 className={classes.title}>{page.title}</h1>
+        <p className={classes.description}>{page.description}</p>
       </header>
 
-      <main style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+      <main className={classes.main}>
         {products.map((product) => (
-          <ProductCard key={product._id || product.title} product={product} />
+          <ProductCard key={product.id || product.title} product={product} />
         ))}
       </main>
     </>

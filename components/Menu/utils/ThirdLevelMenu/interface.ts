@@ -1,8 +1,4 @@
-interface PageItem {
-  _id: string;
-  alias: string;
-  category: string;
-}
+import type { PageItem } from '@/interfaces';
 
 export interface ThirdLevelProps {
   pages: PageItem[];

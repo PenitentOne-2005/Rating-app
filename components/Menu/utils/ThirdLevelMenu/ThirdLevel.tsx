@@ -11,7 +11,7 @@ const ThirdLevel = ({ pages, route, pathName }: ThirdLevelProps) => {
 
         return (
           <Link
-            key={p._id}
+            key={p.id}
             href={`/${route}/${p.alias}`}
             className={cn(styles.thirdLevel, {
               [styles.thirdLevelActive]: isActive,

@@ -28,7 +28,7 @@ const SecondLevel = ({ menuItem, pathName }: SecondLevelProps) => {
   const openSecondLevel = (secondCategory: string) => {
     setMenu((prevMenu) =>
       prevMenu.map((m) =>
-        m._id.secondCategory === secondCategory
+        m.id.secondCategory === secondCategory
           ? { ...m, isOpened: !m.isOpened }
           : m,
       ),
@@ -39,12 +39,12 @@ const SecondLevel = ({ menuItem, pathName }: SecondLevelProps) => {
     <div className={styles.secondBlock}>
       {menu.map((m) => {
         return (
-          <div key={m._id.secondCategory}>
+          <div key={m.id.secondCategory}>
             <div
               className={styles.secondLevel}
-              onClick={() => openSecondLevel(m._id.secondCategory)}
+              onClick={() => openSecondLevel(m.id.secondCategory)}
             >
-              {m._id.secondCategory}
+              {m.id.secondCategory}
             </div>
             <div
               className={cn(styles.secondLevelBlock, {
