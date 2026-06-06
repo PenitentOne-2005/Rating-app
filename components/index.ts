@@ -8,3 +8,4 @@ export { default as Sidebar } from './Sidebar';
 export { default as Tag } from './Tag';
 export { default as TagP } from './TagP';
 export { default as ProductCard } from './ProductCard';
+export { default as Reviews } from './Reviews';

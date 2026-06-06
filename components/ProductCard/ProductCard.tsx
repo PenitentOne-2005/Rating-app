@@ -1,14 +1,19 @@
+'use client';
+
+import { useState } from 'react';
 import type { ProductCardProps } from './ProductCard.props';
-import { Button, Rating } from '@/components';
+import { Button, Rating, Reviews } from '@/components';
 import styles from './ProductCard.module.css';
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const [isReviewsOpen, setIsReviewsOpen] = useState(false);
+
+  const reviews = product.reviews || [];
+
   return (
     <div className={styles.card}>
-      {/* 1. Логотип / Иконка */}
       <div className={styles.logo}>Mock</div>
 
-      {/* 2. Основная информация */}
       <div className={styles.mainInfo}>
         <h3 className={styles.title}>{product.title}</h3>
         <div className={styles.tagWrapper}>
@@ -17,7 +22,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
       </div>
 
-      {/* 3. Блок цены */}
       <div className={styles.priceBlock}>
         <div className={styles.value}>
           {product.price.toLocaleString()} ₽
@@ -30,7 +34,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className={styles.label}>цена</div>
       </div>
 
-      {/* 4. Блок кредита */}
       <div className={styles.creditBlock}>
         <div className={styles.value}>
           {product.credit.toLocaleString()} ₽/мес
@@ -38,7 +41,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className={styles.label}>в кредит</div>
       </div>
 
-      {/* 5. Рейтинг */}
       <div className={styles.ratingBlock}>
         <div>
           <Rating rating={product.rating} isEditable={false} />
@@ -48,12 +50,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
       <div className={styles.divider} />
 
-      {/* 6. Описание */}
       <p className={styles.description}>{product.description}</p>
 
-      {/* 7. Характеристики и Преимущества */}
       <div className={styles.features}>
-        {/* Левая колонка: Характеристики (имитируем макет) */}
         <div className={styles.charList}>
           <div className={styles.charItem}>
             <span className={styles.charName}>Документ об окончании</span>
@@ -72,7 +71,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </div>
         </div>
 
-        {/* Правая колонка: Плюсы и минусы */}
         <div className={styles.prosCons}>
           <div className={styles.proBlock}>
             <div className={styles.blockTitle}>Преимущества</div>
@@ -89,13 +87,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
       <div className={styles.divider} />
 
-      {/* 8. Кнопки с использованием твоего Button */}
       <div className={styles.actions}>
         <Button appearance="primary">Узнать подробнее</Button>
-        <Button appearance="ghost" arrow="right">
+        <Button
+          appearance="ghost"
+          arrow={isReviewsOpen ? 'down' : 'right'}
+          onClick={() => setIsReviewsOpen((isReviewsOpen) => !isReviewsOpen)}
+        >
           Читать отзывы
         </Button>
       </div>
+
+      {isReviewsOpen && <Reviews reviews={reviews} />}
     </div>
   );
 };

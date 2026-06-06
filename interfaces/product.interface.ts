@@ -1,3 +1,12 @@
+export interface ReviewModel {
+  id: string;
+  name: string;
+  title: string;
+  description: string;
+  rating: number;
+  createdAt: string;
+}
+
 export interface ProductModel {
   id: string;
   alias: string;
@@ -7,4 +16,5 @@ export interface ProductModel {
   credit: number;
   rating: number;
   description: string;
+  reviews?: ReviewModel[];
 }
