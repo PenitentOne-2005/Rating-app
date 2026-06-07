@@ -1,9 +1,9 @@
-import type { ReviewModel } from '@/interfaces';
+import type { ReviewsProps } from './interface';
 import { Rating } from '../index';
 import { Form } from './components';
 import classes from './Reviews.module.css';
 
-const Reviews = ({ reviews }: { reviews: ReviewModel[] }) => {
+const Reviews = ({ reviews, onReviewSubmit, productId }: ReviewsProps) => {
   return (
     <div className={classes.reviewsWrapper}>
       {reviews.map((rev) => (
@@ -30,7 +30,7 @@ const Reviews = ({ reviews }: { reviews: ReviewModel[] }) => {
         </div>
       ))}
 
-      <Form />
+      <Form onReviewSubmit={onReviewSubmit} productId={productId} />
     </div>
   );
 };
