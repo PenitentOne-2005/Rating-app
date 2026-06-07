@@ -7,8 +7,7 @@ import styles from './ProductCard.module.css';
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const [isReviewsOpen, setIsReviewsOpen] = useState(false);
-
-  const reviews = product.reviews || [];
+  const [reviews, setReviews] = useState(() => product.reviews || []);
 
   return (
     <div className={styles.card}>
@@ -98,7 +97,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </Button>
       </div>
 
-      {isReviewsOpen && <Reviews reviews={reviews} />}
+      {isReviewsOpen && (
+        <Reviews
+          reviews={reviews}
+          onReviewSubmit={setReviews}
+          productId={product.id}
+        />
+      )}
     </div>
   );
 };
