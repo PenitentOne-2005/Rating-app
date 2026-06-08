@@ -4,6 +4,6 @@ export type {
   FirstLevelMenuItem,
   MockMenuItem,
 } from './menu.interface';
-export type { TopPageModel } from './page.interface';
+export type { TopPageModel, AdvantageItem } from './page.interface';
 export { TopLevelCategory } from './page.interface';
 export type { ProductModel, ReviewModel } from './product.interface';

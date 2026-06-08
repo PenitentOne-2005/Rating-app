@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import type { ReviewModel } from '@/interfaces';
 import type { FormProps, IReviewForm } from './interface';
-import { useCourse } from '@/app/(site)/[type]/[alias]/context';
+import { useCourse } from '@/app/context';
 import { API } from '@/app/api';
 import { Button } from '@/components';
 import { Input, RatingRow } from './components';

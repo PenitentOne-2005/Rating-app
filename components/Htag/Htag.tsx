@@ -1,4 +1,4 @@
-import type { HtagProps } from './Htag.props';
+import type { HtagProps } from './interface';
 import styles from './Htag.module.css';
 
 const Htag = ({ tag, children }: HtagProps) => {

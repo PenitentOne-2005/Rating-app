@@ -1,5 +1,6 @@
 .sidebar {
   grid-area: sidebar;
+  padding-top: 20px;
 }
 
 @media (max-width: 765px) {

@@ -1,4 +1,4 @@
-import type { TagProps } from './Tag.props';
+import type { TagProps } from './interface';
 import cn from 'classnames';
 import styles from './Tag.module.css';
 

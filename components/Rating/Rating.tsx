@@ -1,7 +1,7 @@
 'use client';
 
 import { type KeyboardEvent, useState } from 'react';
-import type { RatingProps } from './Rating.props';
+import type { RatingProps } from './interface';
 import { useRating } from './hooks';
 
 const Rating = ({

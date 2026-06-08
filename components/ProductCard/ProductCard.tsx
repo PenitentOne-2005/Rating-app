@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { ProductCardProps } from './ProductCard.props';
+import type { ProductCardProps } from './interface';
 import { Button, Rating, Reviews } from '@/components';
 import styles from './ProductCard.module.css';
 

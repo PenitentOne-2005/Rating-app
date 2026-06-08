@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import type { FooterProps } from './Footer.props';
+import type { FooterProps } from './interface';
 import styles from './Footer.module.css';
 
 const Footer = ({ ...props }: FooterProps) => {

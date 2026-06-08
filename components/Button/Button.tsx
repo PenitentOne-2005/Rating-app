@@ -1,4 +1,4 @@
-import type { ButtonProps } from './Button.props';
+import type { ButtonProps } from './interface';
 import cn from 'classnames';
 import ArrowIcon from './arrow.svg';
 import styles from './Button.module.css';

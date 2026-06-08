@@ -1,4 +1,4 @@
-import type { PtagProps } from './TagP.props';
+import type { PtagProps } from './interface';
 import cn from 'classnames';
 import styles from './TagP.module.css';
 

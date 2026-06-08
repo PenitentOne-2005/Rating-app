@@ -2,8 +2,8 @@ export { generateMetadata } from './generateMetadata';
 
 import { notFound } from 'next/navigation';
 import { getPage } from '@/api';
-import { CourseContextProvider } from './context';
-import { ProductCard } from '@/components';
+import { CourseContextProvider } from '../../../context';
+import { Advantages, ProductList, Skills, Sort } from '@/components';
 import classes from './page.module.css';
 
 const Courses = async ({ params }: { params: { alias: string } }) => {
@@ -35,14 +35,20 @@ const Courses = async ({ params }: { params: { alias: string } }) => {
   return (
     <CourseContextProvider pageId={page.id} initialProducts={products}>
       <header className={classes.header}>
-        <h1 className={classes.title}>{page.title}</h1>
-        <p className={classes.description}>{page.description}</p>
+        <div className={classes.headerMeta}>
+          <h1 className={classes.title}>{page.title}</h1>
+          <p className={classes.description}>{page.description}</p>
+        </div>
+
+        <Sort />
       </header>
 
       <main className={classes.main}>
-        {products.map((product) => (
-          <ProductCard key={product.id || product.title} product={product} />
-        ))}
+        <ProductList />
+
+        <Advantages advantages={page.advantages || []} />
+
+        <Skills skills={page.skills || []} />
       </main>
     </CourseContextProvider>
   );

@@ -1,5 +1,11 @@
-.header:not(:last-child) {
-  margin-bottom: 30px;
+.header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
 }
 
 .title {
@@ -19,5 +25,5 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
 }

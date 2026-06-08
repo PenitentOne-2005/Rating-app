@@ -1,4 +1,4 @@
-import type { HeaderProps } from './Header.props';
+import type { HeaderProps } from './interface';
 import styles from './Header.module.css';
 
 const Header = ({ ...props }: HeaderProps) => {
