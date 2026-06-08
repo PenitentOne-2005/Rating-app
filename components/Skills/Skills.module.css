@@ -1,0 +1,28 @@
+.skillsSection {
+  font-family: sans-serif;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 20px;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 18px;
+  background-color: #f8f9fa;
+  border: 1px solid #7653fc;
+  color: #7653fc;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
