@@ -16,12 +16,9 @@ const SearchItem = async ({ params, searchParams }: SearchPageProps) => {
   const allPages = await getPage();
   if (!allPages) notFound();
 
-  const allProducts: ProductModel[] = allPages.reduce<ProductModel[]>(
-    (acc, currentContextPage) => {
-      return acc.concat(currentContextPage.products || []);
-    },
-    [],
-  );
+  const allProducts = allPages.reduce((acc, currentContextPage) => {
+    return acc.concat(currentContextPage.products || []);
+  }, [] as ProductModel[]);
 
   const filteredProducts = allProducts.filter((product) => {
     if (!searchQuery || !searchQuery.trim()) {
