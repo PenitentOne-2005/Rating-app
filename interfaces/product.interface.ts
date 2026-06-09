@@ -7,6 +7,13 @@ export interface ReviewModel {
   createdAt: string;
 }
 
+interface Characteristics {
+  name: string;
+  title: string;
+  value: string;
+  description: string;
+}
+
 export interface ProductModel {
   id: string;
   alias: string;
@@ -17,4 +24,7 @@ export interface ProductModel {
   rating: number;
   description: string;
   reviews?: ReviewModel[];
+  characteristics?: Characteristics[];
+  advantages: Characteristics[];
+  flaws: Characteristics[];
 }

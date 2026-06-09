@@ -19,20 +19,29 @@ const getMenu: getMenuProps = async (firstCategory) => {
       (item: MockMenuItem) => item.firstCategory === firstCategory,
     );
 
-    return filtered.map((item: MockMenuItem) => ({
-      id: {
-        secondCategory: item.title,
-      },
-      isOpened: false,
-      pages: [
-        {
+    if (filtered.length === 0) return [];
+
+    const groupTitleMap: Record<number, string> = {
+      0: 'Разработка',
+      1: 'Книги',
+    };
+
+    const currentGroupName = groupTitleMap[firstCategory] || 'Раздел';
+
+    return [
+      {
+        id: {
+          secondCategory: currentGroupName,
+        },
+        isOpened: false,
+        pages: filtered.map((item: MockMenuItem) => ({
           id: item.id,
           alias: item.alias,
           title: item.title,
           category: item.title,
-        },
-      ],
-    }));
+        })),
+      },
+    ];
   } catch (error) {
     console.error(error);
     return [];

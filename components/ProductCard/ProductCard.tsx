@@ -52,35 +52,37 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <p className={styles.description}>{product.description}</p>
 
       <div className={styles.features}>
-        <div className={styles.charList}>
-          <div className={styles.charItem}>
-            <span className={styles.charName}>Документ об окончании</span>
-            <span className={styles.charDots} />
-            <span className={styles.charValue}>Диплом</span>
+        {product.characteristics && product.characteristics.length > 0 && (
+          <div className={styles.charList}>
+            {product.characteristics.map((characteristic) => (
+              <div className={styles.charItem} key={characteristic.name}>
+                <span className={styles.charName}>{characteristic.name}</span>
+                <span className={styles.charDots} />
+                <span className={styles.charValue}>{characteristic.value}</span>
+              </div>
+            ))}
           </div>
-          <div className={styles.charItem}>
-            <span className={styles.charName}>Сложность</span>
-            <span className={styles.charDots} />
-            <span className={styles.charValue}>Начальная</span>
-          </div>
-          <div className={styles.charItem}>
-            <span className={styles.charName}>Длительность</span>
-            <span className={styles.charDots} />
-            <span className={styles.charValue}>5 месяцев</span>
-          </div>
-        </div>
+        )}
 
         <div className={styles.prosCons}>
-          <div className={styles.proBlock}>
-            <div className={styles.blockTitle}>Преимущества</div>
-            <div>
-              Отличный структурированный материал, работа с наставником.
+          {product.advantages?.map((advantage) => (
+            <div
+              className={styles.proBlock}
+              key={advantage.name || advantage.title}
+            >
+              <div className={styles.blockTitle}>
+                {advantage.name || advantage.title}
+              </div>
+              <div>{advantage.value || advantage.description}</div>
             </div>
-          </div>
-          <div className={styles.conBlock}>
-            <div className={styles.blockTitle}>Недостатки</div>
-            <div>Некоторые темы требуют дополнительного гугления.</div>
-          </div>
+          ))}
+
+          {product.flaws?.map((flaw) => (
+            <div className={styles.conBlock} key={flaw.name}>
+              <div className={styles.blockTitle}>{flaw.name}</div>
+              <div>{flaw.value}</div>
+            </div>
+          ))}
         </div>
       </div>
 

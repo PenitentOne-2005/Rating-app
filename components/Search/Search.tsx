@@ -1,21 +1,18 @@
 'use client';
 
 import { useState, type KeyboardEvent } from 'react';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import classes from './Search.module.css';
 
 const Search = () => {
   const [search, setSearch] = useState<string>('');
 
   const router = useRouter();
-  const params = useParams();
-
-  const currentAlias = params?.alias || 'all';
 
   const handleSearch = () => {
     if (!search.trim()) return;
 
-    router.push(`/search/${currentAlias}?q=${encodeURIComponent(search)}`);
+    router.push(`/search/all?q=${encodeURIComponent(search)}`);
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {

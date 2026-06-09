@@ -6,7 +6,13 @@ import cn from 'classnames';
 import styles from '../styles/utils.module.css';
 
 const FirstLevel = ({ pathName }: FirstLevelProps) => {
-  const firstCategory = firstLevelMenu[0].id; // Предполагаем, что первый элемент всегда актуален
+ const activeMenuItem = firstLevelMenu.find((m) =>
+   pathName.startsWith(`/${m.route}`),
+ );
+
+ const currentActiveCategoryId = activeMenuItem
+   ? activeMenuItem.id
+   : firstLevelMenu[0].id;
 
   return (
     <>
@@ -15,14 +21,14 @@ const FirstLevel = ({ pathName }: FirstLevelProps) => {
           <Link href={`/${m.route}`}>
             <div
               className={cn(styles.firstLevel, {
-                [styles.firstLevelActive]: m.id === firstCategory,
+                [styles.firstLevelActive]: m.id === currentActiveCategoryId,
               })}
             >
               {m.icon}
               <span>{m.name}</span>
             </div>
           </Link>
-          {m.id === firstCategory && (
+          {m.id === currentActiveCategoryId && (
             <SecondLevel menuItem={m} pathName={pathName} />
           )}
         </div>

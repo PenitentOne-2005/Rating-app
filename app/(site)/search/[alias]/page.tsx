@@ -1,3 +1,4 @@
+import type { ProductModel } from '@/interfaces';
 import type { SearchPageProps } from './interface';
 import { notFound } from 'next/navigation';
 import { getPage } from '@/api';
@@ -12,12 +13,15 @@ const SearchItem = async ({ params, searchParams }: SearchPageProps) => {
     notFound();
   }
 
-  const page = await getPage(alias);
-  if (!page) {
-    notFound();
-  }
+  const allPages = await getPage();
+  if (!allPages) notFound();
 
-  const allProducts = page.products || [];
+  const allProducts: ProductModel[] = allPages.reduce<ProductModel[]>(
+    (acc, currentContextPage) => {
+      return acc.concat(currentContextPage.products || []);
+    },
+    [],
+  );
 
   const filteredProducts = allProducts.filter((product) => {
     if (!searchQuery || !searchQuery.trim()) {
@@ -40,15 +44,13 @@ const SearchItem = async ({ params, searchParams }: SearchPageProps) => {
           <span className={classes.queryText}>«{searchQuery || ''}»</span>
         </h1>
         <p className={classes.subtitle}>
-          Категория: {page.title} — Найдено курсов: {filteredProducts.length}
+          Глобальный поиск — Найдено совпадений: {filteredProducts.length}
         </p>
       </header>
 
       <main className={classes.main}>
         {filteredProducts.length > 0 ? (
-          <div className={classes.grid}>
-            <ProductList products={filteredProducts} />
-          </div>
+          <ProductList products={filteredProducts} />
         ) : (
           <div className={classes.emptyState}>
             <h3>Ничего не найдено</h3>

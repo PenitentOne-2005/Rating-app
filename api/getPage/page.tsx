@@ -1,9 +1,11 @@
 import { API } from '@/app/api';
 import type { getPageProps } from './interface';
 
-const getPage: getPageProps = async (alias) => {
+const getPage: getPageProps = async (alias = '') => {
   try {
-    const res = await fetch(`${API.pages}?alias=${alias}`, {
+    const URL = alias ? `${API.pages}?alias=${alias}` : `${API.pages}`;
+
+    const res = await fetch(URL, {
       method: 'GET',
       next: { revalidate: 10 },
     });
@@ -14,9 +16,10 @@ const getPage: getPageProps = async (alias) => {
 
     const pages = await res.json();
 
-    return pages.length > 0 ? pages[0] : null;
+    return alias ? pages[0] : pages;
   } catch (error) {
     console.error(error);
+
     return null;
   }
 };

@@ -30,18 +30,6 @@
   width: 100%;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  }
-}
-
 .emptyState {
   display: flex;
   flex-direction: column;
@@ -53,19 +41,19 @@
   border: 1px dashed #cbd5e1;
   border-radius: 8px;
   margin-top: 20px;
-}
 
-.emptyState h3 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #4a5568;
-  margin: 0 0 10px 0;
-}
+  & h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #4a5568;
+    margin: 0 0 10px 0;
+  }
 
-.emptyState p {
-  font-size: 15px;
-  color: #718096;
-  margin: 0;
-  max-width: 400px;
-  line-height: 1.5;
+  & p {
+    font-size: 15px;
+    color: #718096;
+    margin: 0;
+    max-width: 400px;
+    line-height: 1.5;
+  }
 }

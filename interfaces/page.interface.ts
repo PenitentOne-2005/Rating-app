@@ -2,9 +2,7 @@ import type { ProductModel } from './product.interface';
 
 export enum TopLevelCategory {
   Courses,
-  Services,
   Books,
-  Products,
 }
 
 export interface AdvantageItem {
