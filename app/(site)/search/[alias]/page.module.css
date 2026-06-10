@@ -30,6 +30,12 @@
   width: 100%;
 }
 
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 .emptyState {
   display: flex;
   flex-direction: column;
