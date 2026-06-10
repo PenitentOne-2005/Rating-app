@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import type { ProductCardProps } from './interface';
 import { Button, Rating, Reviews } from '@/components';
 import styles from './ProductCard.module.css';
@@ -8,6 +10,8 @@ import styles from './ProductCard.module.css';
 const ProductCard = ({ product }: ProductCardProps) => {
   const [isReviewsOpen, setIsReviewsOpen] = useState(false);
   const [reviews, setReviews] = useState(() => product.reviews || []);
+
+  const pathName = usePathname();
 
   return (
     <div className={styles.card}>
@@ -88,16 +92,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
       <div className={styles.divider} />
 
-      <div className={styles.actions}>
-        <Button appearance="primary">Узнать подробнее</Button>
-        <Button
-          appearance="ghost"
-          arrow={isReviewsOpen ? 'down' : 'right'}
-          onClick={() => setIsReviewsOpen((isReviewsOpen) => !isReviewsOpen)}
-        >
-          Читать отзывы
-        </Button>
-      </div>
+      {pathName != '/books' && pathName != '/courses' && (
+        <div className={styles.actions}>
+          <Button appearance="primary">Купить</Button>
+          <Button
+            appearance="ghost"
+            arrow={isReviewsOpen ? 'down' : 'right'}
+            onClick={() => setIsReviewsOpen((isReviewsOpen) => !isReviewsOpen)}
+          >
+            Читать отзывы
+          </Button>
+        </div>
+      )}
 
       {isReviewsOpen && (
         <Reviews
