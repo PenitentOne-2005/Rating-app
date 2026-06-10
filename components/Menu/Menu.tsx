@@ -13,7 +13,7 @@ const Menu = () => {
     setIsClient(true);
   }, []);
 
-  if (!isClient) return null; // Предотвращаем рендеринг на сервере
+  if (!isClient) return null;
 
   return (
     <nav className={styles.menu}>
