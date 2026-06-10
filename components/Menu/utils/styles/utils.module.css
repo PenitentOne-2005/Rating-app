@@ -9,11 +9,11 @@
 }
 
 :is(
-    .firstLevel:hover,
-    .firstLevelActive,
-    .thirdLevel:hover,
-    .thirdLevelActvive
-  ) {
+  .firstLevel:hover,
+  .firstLevelActive,
+  .thirdLevel:hover,
+  .thirdLevelActvive
+) {
   color: var(--primary);
 }
 
@@ -34,19 +34,17 @@
 
 .secondLevelBlockOpened {
   display: block;
-
-  &:last-child {
-    margin-bottom: 20px;
-  }
 }
 
 .secondLevel {
-  margin-bottom: 10px;
-
   font-size: 0.75rem;
   font-weight: 300;
   line-height: 133%;
   text-transform: uppercase;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 }
 
 .thirdLevel {
