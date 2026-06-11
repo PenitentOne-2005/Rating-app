@@ -5,7 +5,7 @@ import type { ProductListProps } from './interface';
 import { CourseContext } from '@/app/context';
 import ProductCard from '../ProductCard';
 
-const ProductList = ({ products: customProducts }: ProductListProps) => {
+const ProductList = ({ products: customProducts, view }: ProductListProps) => {
   const context = useContext(CourseContext);
 
   const contextProducts = context ? context.products : [];
@@ -19,7 +19,11 @@ const ProductList = ({ products: customProducts }: ProductListProps) => {
   return (
     <>
       {productsToRender.map((product) => (
-        <ProductCard key={product.id || product.title} product={product} />
+        <ProductCard
+          key={product.id || product.title}
+          product={product}
+          view={view}
+        />
       ))}
     </>
   );

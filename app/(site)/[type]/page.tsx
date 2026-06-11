@@ -27,7 +27,7 @@ const Category = async ({ params }: CategoryProps) => {
       <div className={classes.container}>
         <h1>{type === 'courses' ? 'Курсы по разработке' : 'Книги'}</h1>
 
-        <ProductList products={allProducts} />
+        <ProductList products={allProducts} view="compact" />
       </div>
     </CourseContextProvider>
   );

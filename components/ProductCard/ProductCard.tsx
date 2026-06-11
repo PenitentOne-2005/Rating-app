@@ -1,17 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import type { ProductCardProps } from './interface';
 import { Button, Rating, Reviews } from '@/components';
 import styles from './ProductCard.module.css';
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product, view }: ProductCardProps) => {
   const [isReviewsOpen, setIsReviewsOpen] = useState(false);
   const [reviews, setReviews] = useState(() => product.reviews || []);
 
-  const pathName = usePathname();
+  const isFullView = view === 'full';
 
   return (
     <div className={styles.card}>
@@ -55,46 +53,52 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
       <p className={styles.description}>{product.description}</p>
 
-      <div className={styles.features}>
-        {product.characteristics && product.characteristics.length > 0 && (
-          <div className={styles.charList}>
-            {product.characteristics.map((characteristic) => (
-              <div className={styles.charItem} key={characteristic.name}>
-                <span className={styles.charName}>{characteristic.name}</span>
-                <span className={styles.charDots} />
-                <span className={styles.charValue}>{characteristic.value}</span>
+      {isFullView && (
+        <div className={styles.features}>
+          {product.characteristics && product.characteristics.length > 0 && (
+            <div className={styles.charList}>
+              {product.characteristics.map((characteristic) => (
+                <div className={styles.charItem} key={characteristic.name}>
+                  <span className={styles.charName}>{characteristic.name}</span>
+                  <span className={styles.charDots} />
+                  <span className={styles.charValue}>
+                    {characteristic.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className={styles.prosCons}>
+            {product.advantages?.map((advantage) => (
+              <div
+                className={styles.proBlock}
+                key={advantage.name || advantage.title}
+              >
+                <div className={styles.blockTitle}>
+                  {advantage.name || advantage.title}
+                </div>
+                <div>{advantage.value || advantage.description}</div>
+              </div>
+            ))}
+
+            {product.flaws?.map((flaw) => (
+              <div className={styles.conBlock} key={flaw.name}>
+                <div className={styles.blockTitle}>{flaw.name}</div>
+                <div>{flaw.value}</div>
               </div>
             ))}
           </div>
-        )}
-
-        <div className={styles.prosCons}>
-          {product.advantages?.map((advantage) => (
-            <div
-              className={styles.proBlock}
-              key={advantage.name || advantage.title}
-            >
-              <div className={styles.blockTitle}>
-                {advantage.name || advantage.title}
-              </div>
-              <div>{advantage.value || advantage.description}</div>
-            </div>
-          ))}
-
-          {product.flaws?.map((flaw) => (
-            <div className={styles.conBlock} key={flaw.name}>
-              <div className={styles.blockTitle}>{flaw.name}</div>
-              <div>{flaw.value}</div>
-            </div>
-          ))}
         </div>
-      </div>
+      )}
 
       <div className={styles.divider} />
 
-      {pathName != '/books' && pathName != '/courses' && (
+      {isFullView && (
         <div className={styles.actions}>
-          <Button appearance="primary">Купить</Button>
+          <Button appearance="primary" onClick={() => window.location.reload()}>
+            Купить
+          </Button>
           <Button
             appearance="ghost"
             arrow={isReviewsOpen ? 'down' : 'right'}
@@ -105,7 +109,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
       )}
 
-      {isReviewsOpen && (
+      {isFullView && isReviewsOpen && (
         <Reviews
           reviews={reviews}
           onReviewSubmit={setReviews}

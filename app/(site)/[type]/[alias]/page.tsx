@@ -64,7 +64,7 @@ const CategoryPage = async ({
       </header>
 
       <main className={classes.main}>
-        <ProductList />
+        <ProductList view="full" />
 
         <Advantages advantages={page.advantages || []} />
 
