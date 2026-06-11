@@ -1,5 +1,6 @@
 import type { ProductModel } from '@/interfaces';
 import type { SearchPageProps } from './interface';
+import { CourseContextProvider } from '@/app/context';
 import { notFound } from 'next/navigation';
 import { getPage } from '@/api';
 import { ProductList } from '@/components';
@@ -34,33 +35,35 @@ const SearchItem = async ({ params, searchParams }: SearchPageProps) => {
   });
 
   return (
-    <div className={classes.wrapper}>
-      <header className={classes.header}>
-        <h1 className={classes.title}>
-          Результаты поиска по запросу:{' '}
-          <span className={classes.queryText}>«{searchQuery || ''}»</span>
-        </h1>
-        <p className={classes.subtitle}>
-          Глобальный поиск — Найдено совпадений: {filteredProducts.length}
-        </p>
-      </header>
+    <CourseContextProvider pageId={alias} initialProducts={filteredProducts}>
+      <div className={classes.wrapper}>
+        <header className={classes.header}>
+          <h1 className={classes.title}>
+            Результаты поиска по запросу:{' '}
+            <span className={classes.queryText}>«{searchQuery || ''}»</span>
+          </h1>
+          <p className={classes.subtitle}>
+            Глобальный поиск — Найдено совпадений: {filteredProducts.length}
+          </p>
+        </header>
 
-      <main className={classes.main}>
-        {filteredProducts.length > 0 ? (
-          <div className={classes.items}>
-            <ProductList products={filteredProducts} />
-          </div>
-        ) : (
-          <div className={classes.emptyState}>
-            <h3>Ничего не найдено</h3>
-            <p>
-              К сожалению, по запросу {searchQuery} в данной категории нет
-              подходящих курсов.
-            </p>
-          </div>
-        )}
-      </main>
-    </div>
+        <main className={classes.main}>
+          {filteredProducts.length > 0 ? (
+            <div className={classes.items}>
+              <ProductList products={filteredProducts} view="full" />
+            </div>
+          ) : (
+            <div className={classes.emptyState}>
+              <h3>Ничего не найдено</h3>
+              <p>
+                К сожалению, по запросу {searchQuery} в данной категории нет
+                подходящих курсов.
+              </p>
+            </div>
+          )}
+        </main>
+      </div>
+    </CourseContextProvider>
   );
 };
 
