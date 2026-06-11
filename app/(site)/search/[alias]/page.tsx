@@ -48,7 +48,7 @@ const SearchItem = async ({ params, searchParams }: SearchPageProps) => {
       <main className={classes.main}>
         {filteredProducts.length > 0 ? (
           <div className={classes.items}>
-            <ProductList products={filteredProducts} view="full" />
+            <ProductList products={filteredProducts} />
           </div>
         ) : (
           <div className={classes.emptyState}>
