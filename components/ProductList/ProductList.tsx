@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import type { ProductListProps } from './interface';
 import { CourseContext } from '@/app/context';
 import ProductCard from '../ProductCard';
+import classes from './ProductList.module.css';
 
 const ProductList = ({ products: customProducts, view }: ProductListProps) => {
   const context = useContext(CourseContext);
@@ -17,15 +18,17 @@ const ProductList = ({ products: customProducts, view }: ProductListProps) => {
   }
 
   return (
-    <>
+    <ul className={classes.list}>
       {productsToRender.map((product) => (
-        <ProductCard
-          key={product.id || product.title}
-          product={product}
-          view={view}
-        />
+        <li key={product.id || product.title} className={classes.listItem}>
+          <ProductCard
+            key={product.id || product.title}
+            product={product}
+            view={view}
+          />
+        </li>
       ))}
-    </>
+    </ul>
   );
 };
 

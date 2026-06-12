@@ -2,19 +2,13 @@
   font-family: sans-serif;
 }
 
-.sectionTitle {
-  font-size: 24px;
-  font-weight: 700;
-  color: #2d3748;
-  margin-bottom: 28px;
-}
-
 .list {
   display: flex;
   flex-direction: column;
 }
 
 .item {
+  list-style: none;
   display: flex;
   gap: 20px;
 
@@ -50,13 +44,6 @@
   background-color: #e2e8f0;
   flex-grow: 1;
   margin: 8px 0;
-}
-
-.title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #2d3748;
-  margin: 0 0 12px 0;
 }
 
 .description {

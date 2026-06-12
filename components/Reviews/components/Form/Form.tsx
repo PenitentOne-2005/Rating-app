@@ -6,8 +6,8 @@ import type { ReviewModel } from '@/interfaces';
 import type { FormProps, IReviewForm } from './interface';
 import { useCourse } from '@/app/context';
 import { API } from '@/app/api';
-import { Button } from '@/components';
-import { Input, RatingRow } from './components';
+import { Button, Input } from '@/components';
+import { RatingRow } from './components';
 import { ErrorStatus, SuccessStatus } from './ui';
 import styles from './Form.module.css';
 
@@ -94,6 +94,8 @@ const Form = ({ productId, onReviewSubmit }: FormProps) => {
           placeholder="Имя"
           error={errors.name}
           disabled={isSubmitting}
+          aria-label="Ваше имя"
+          aria-invalid={!!errors.name}
         />
 
         <Input
@@ -103,6 +105,8 @@ const Form = ({ productId, onReviewSubmit }: FormProps) => {
           placeholder="Заголовок отзыва"
           error={errors.title}
           disabled={isSubmitting}
+          aria-label="Заголовок отзыва"
+          aria-invalid={!!errors.title}
         />
 
         <RatingRow
@@ -119,15 +123,28 @@ const Form = ({ productId, onReviewSubmit }: FormProps) => {
         placeholder="Текст отзыва"
         rows={4}
         className={styles.textarea}
+        disabled={isSubmitting}
+        aria-label="Текст отзыва"
+        aria-invalid={!!errors.description}
+        aria-describedby={errors.description ? 'description-error' : undefined}
       />
       {errors.description && (
-        <span style={{ color: '#E53E3E', fontSize: '14px', marginTop: '4px' }}>
+        <span
+          id="description-error"
+          role="alert"
+          style={{ color: '#E53E3E', fontSize: '14px', marginTop: '4px' }}
+        >
           {errors.description.message}
         </span>
       )}
 
       <div className={styles.actions}>
-        <Button appearance="primary" type="submit" disabled={isSubmitting}>
+        <Button
+          appearance="primary"
+          type="submit"
+          disabled={isSubmitting}
+          aria-busy={isSubmitting}
+        >
           {isSubmitting ? 'Отправка...' : 'Отправить'}
         </Button>
 

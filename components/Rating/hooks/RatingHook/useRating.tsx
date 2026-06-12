@@ -12,10 +12,14 @@ const useRating = (data: useRatingProps) => {
     resetDisplay,
     handleClick,
     handleSpace,
+    rating,
   } = data;
 
   const ratingArray = useMemo(() => {
     return new Array(5).fill(0).map((_, i) => {
+      const starValue = i + 1;
+      const isChecked = rating === starValue;
+
       const combinedStyles = cn(styles.star, {
         [styles.filled]: i < displayRating,
         [styles.editable]: isEditable,
@@ -25,14 +29,29 @@ const useRating = (data: useRatingProps) => {
         <span
           key={i}
           className={combinedStyles}
-          onMouseEnter={isEditable ? () => changeDisplay(i + 1) : undefined}
+          onMouseEnter={isEditable ? () => changeDisplay(starValue) : undefined}
           onMouseLeave={isEditable ? () => resetDisplay() : undefined}
-          onClick={isEditable ? () => handleClick(i + 1) : undefined}
+          onClick={isEditable ? () => handleClick(starValue) : undefined}
+          tabIndex={isEditable ? 0 : -1}
+          role={isEditable ? 'radio' : undefined}
+          aria-checked={isEditable ? isChecked : undefined}
+          aria-label={
+            isEditable
+              ? `Поставить оценку ${starValue}`
+              : `Оценка ${rating} из 5`
+          }
+          onKeyDown={
+            isEditable
+              ? (e) => {
+                  if (e.code === 'Space') {
+                    e.preventDefault();
+                    handleSpace(starValue);
+                  }
+                }
+              : undefined
+          }
         >
-          <StarIcon
-            tabIndex={isEditable ? 0 : -1}
-            onKeyDown={(e) => isEditable && handleSpace(i + 1, e)}
-          />
+          <StarIcon />
         </span>
       );
     });
@@ -43,6 +62,7 @@ const useRating = (data: useRatingProps) => {
     handleClick,
     handleSpace,
     resetDisplay,
+    rating,
   ]);
 
   return ratingArray;

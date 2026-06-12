@@ -1,6 +1,6 @@
 'use client';
 
-import { type KeyboardEvent, useState } from 'react';
+import { useState } from 'react';
 import type { RatingProps } from './interface';
 import { useRating } from './hooks';
 
@@ -28,8 +28,8 @@ const Rating = ({
     }
   };
 
-  const handleSpace = (i: number, e: KeyboardEvent<SVGAElement>) => {
-    if (e.code === 'Space' && setRating) {
+  const handleSpace = (i: number) => {
+    if (isEditable && setRating) {
       setRating(i);
       setDisplayRating(i);
     }
@@ -42,17 +42,12 @@ const Rating = ({
     resetDisplay,
     handleClick,
     handleSpace,
+    rating,
   };
 
   const ratingArray = useRating(data);
 
-  return (
-    <div {...props}>
-      {ratingArray.map((star, i) => (
-        <span key={i}>{star}</span>
-      ))}
-    </div>
-  );
+  return <div {...props}>{ratingArray}</div>;
 };
 
 export default Rating;

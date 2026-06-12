@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { ButtonProps } from './interface';
 import cn from 'classnames';
 import ArrowIcon from './arrow.svg';
@@ -7,6 +8,7 @@ const Button = ({
   appearance,
   children,
   arrow = 'none',
+  href,
   ...props
 }: ButtonProps) => {
   const classes = {
@@ -16,15 +18,28 @@ const Button = ({
     [styles.primary]: appearance == 'primary',
   };
 
-  return (
-    <button className={cn(styles.button, classes)} {...props}>
+  const content = (
+    <>
       {children}
-
       {arrow !== 'none' && (
         <span className={cn(styles.arrow, classes)}>
           <ArrowIcon />
         </span>
       )}
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link href={href} className={cn(styles.button, classes)}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <button className={cn(styles.button, classes)} {...props}>
+      {content}
     </button>
   );
 };

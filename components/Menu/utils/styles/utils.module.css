@@ -36,17 +36,6 @@
   display: block;
 }
 
-.secondLevel {
-  font-size: 0.75rem;
-  font-weight: 300;
-  line-height: 133%;
-  text-transform: uppercase;
-
-  &:not(:last-child) {
-    margin-bottom: 10px;
-  }
-}
-
 .thirdLevel {
   display: block;
 
@@ -55,9 +44,7 @@
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 135%;
-}
 
-:is(.secondLevel, .thirdLevel) {
   cursor: pointer;
   color: var(--gray-dark);
 }

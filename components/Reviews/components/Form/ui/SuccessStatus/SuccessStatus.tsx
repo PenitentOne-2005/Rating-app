@@ -3,6 +3,8 @@ import type { ReactNode } from 'react';
 const SuccessStatus = ({ children }: { children: ReactNode }) => {
   return (
     <div
+      aria-live="polite"
+      aria-atomic="true"
       style={{
         marginTop: '15px',
         padding: '12px',

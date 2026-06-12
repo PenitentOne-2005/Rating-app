@@ -3,6 +3,14 @@
   padding-top: 20px;
 }
 
+.link {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
 @media (max-width: 765px) {
   .sidebar {
     display: none;

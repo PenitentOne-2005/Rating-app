@@ -16,7 +16,7 @@ const ProductCard = ({ product, view }: ProductCardProps) => {
       <div className={styles.logo}>Mock</div>
 
       <div className={styles.mainInfo}>
-        <h3 className={styles.title}>{product.title}</h3>
+        <div className={styles.title}>{product.title}</div>
         <div className={styles.tagWrapper}>
           <span className={styles.tag}>Разработка</span>
           <span className={styles.tag}>MockAPI</span>
@@ -27,7 +27,10 @@ const ProductCard = ({ product, view }: ProductCardProps) => {
         <div className={styles.value}>
           {product.price.toLocaleString()} ₽
           {product.oldPrice && (
-            <span className={styles.oldPrice}>
+            <span
+              className={styles.oldPrice}
+              aria-label={`Старая цена: ${product.oldPrice} рублей`}
+            >
               {product.oldPrice.toLocaleString()} ₽
             </span>
           )}
@@ -49,7 +52,7 @@ const ProductCard = ({ product, view }: ProductCardProps) => {
         <div className={styles.label}>5 отзывов</div>
       </div>
 
-      <div className={styles.divider} />
+      <div className={styles.divider} aria-hidden="true" />
 
       <p className={styles.description}>{product.description}</p>
 
@@ -92,7 +95,7 @@ const ProductCard = ({ product, view }: ProductCardProps) => {
         </div>
       )}
 
-      <div className={styles.divider} />
+      <div className={styles.divider} aria-hidden="true" />
 
       {isFullView && (
         <div className={styles.actions}>
@@ -103,6 +106,7 @@ const ProductCard = ({ product, view }: ProductCardProps) => {
             appearance="ghost"
             arrow={isReviewsOpen ? 'down' : 'right'}
             onClick={() => setIsReviewsOpen((isReviewsOpen) => !isReviewsOpen)}
+            aria-expanded={isReviewsOpen}
           >
             Читать отзывы
           </Button>

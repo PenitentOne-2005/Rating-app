@@ -1,21 +1,24 @@
 import type { SkillsProps } from './interface';
+import { Htag } from '@/components';
 import classes from './Skills.module.css';
 
 const Skills = ({ skills }: SkillsProps) => {
   if (!skills || skills.length === 0) return null;
 
   return (
-    <div className={classes.skillsSection}>
-      <h2 className={classes.sectionTitle}>Получаемые навыки</h2>
+    <section className={classes.skillsSection} aria-labelledby="skills-title">
+      <Htag tag="h2" id="skills-title">
+        Получаемые навыки
+      </Htag>
 
-      <div className={classes.tagsContainer}>
+      <ul className={classes.tagsContainer}>
         {skills.map((skill) => (
-          <span key={skill} className={classes.tag}>
+          <li key={skill} className={classes.tag}>
             {skill}
-          </span>
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </section>
   );
 };
 

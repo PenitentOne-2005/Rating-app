@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import type { CategoryProps } from './interface';
 import { CourseContextProvider } from '@/app/context';
 import { getPage } from '@/api';
-import { ProductList } from '@/components';
+import { Htag, ProductList } from '@/components';
 import classes from './page.module.css';
 
 const Category = async ({ params }: CategoryProps) => {
@@ -24,11 +24,13 @@ const Category = async ({ params }: CategoryProps) => {
 
   return (
     <CourseContextProvider pageId={type} initialProducts={allProducts}>
-      <div className={classes.container}>
-        <h1>{type === 'courses' ? 'Курсы по разработке' : 'Книги'}</h1>
+      <main className={classes.container}>
+        <Htag tag="h1">
+          {type === 'courses' ? 'Курсы по разработке' : 'Книги'}
+        </Htag>
 
         <ProductList products={allProducts} view="compact" />
-      </div>
+      </main>
     </CourseContextProvider>
   );
 };

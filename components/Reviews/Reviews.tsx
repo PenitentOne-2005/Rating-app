@@ -5,33 +5,41 @@ import classes from './Reviews.module.css';
 
 const Reviews = ({ reviews, onReviewSubmit, productId }: ReviewsProps) => {
   return (
-    <div className={classes.reviewsWrapper}>
+    <ul className={classes.reviewsWrapper}>
       {reviews.map((rev) => (
-        <div key={rev.id} className={classes.reviewItem}>
-          <div className={classes.reviewInfo}>
-            <div>
-              <strong className={classes.reviewHeader}>{rev.name}:</strong>
-              <span className={classes.reviewTitle}>{rev.title}</span>
+        <li key={rev.id}>
+          <article className={classes.reviewItem}>
+            <div className={classes.reviewInfo}>
+              <div>
+                <strong className={classes.reviewHeader}>{rev.name}:</strong>
+
+                <span style={{ display: 'none' }}>, </span>
+
+                <span className={classes.reviewTitle}>{rev.title}</span>
+              </div>
+
+              <div className={classes.ratingDate}>
+                <time
+                  className={classes.date}
+                  dateTime={new Date(rev.createdAt).toISOString()}
+                >
+                  {new Date(rev.createdAt).toLocaleDateString('ru-RU', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                  })}
+                </time>
+                <Rating rating={rev.rating} isEditable={false} />
+              </div>
             </div>
 
-            <div className={classes.ratingDate}>
-              <span className={classes.date}>
-                {new Date(rev.createdAt).toLocaleDateString('ru-RU', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric',
-                })}
-              </span>
-              <Rating rating={rev.rating} isEditable={false} />
-            </div>
-          </div>
-
-          <p className={classes.reviewText}>{rev.description}</p>
-        </div>
+            <p className={classes.reviewText}>{rev.description}</p>
+          </article>
+        </li>
       ))}
 
       <Form onReviewSubmit={onReviewSubmit} productId={productId} />
-    </div>
+    </ul>
   );
 };
 

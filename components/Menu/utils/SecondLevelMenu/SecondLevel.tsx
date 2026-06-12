@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import type { MenuItem } from '@/interfaces/menu.interface';
 import type { SecondLevelProps } from './interface';
 import { getMenu } from '@/api';
+import { Button } from '@/components';
 import { ThirdLevel } from '../index';
 import cn from 'classnames';
 import styles from '../styles/utils.module.css';
@@ -36,20 +37,24 @@ const SecondLevel = ({ menuItem, pathName }: SecondLevelProps) => {
   };
 
   return (
-    <div className={styles.secondBlock}>
+    <ul className={styles.secondBlock}>
       {menu.map((m) => {
         return (
-          <div key={m.id.secondCategory}>
-            <div
-              className={styles.secondLevel}
+          <li key={m.id.secondCategory}>
+            <Button
+              appearance="ghost"
+              type="button"
               onClick={() => openSecondLevel(m.id.secondCategory)}
+              aria-expanded={m.isOpened}
             >
               {m.id.secondCategory}
-            </div>
+            </Button>
+
             <div
               className={cn(styles.secondLevelBlock, {
                 [styles.secondLevelBlockOpened]: m.isOpened,
               })}
+              aria-hidden={!m.isOpened}
             >
               <ThirdLevel
                 pages={m.pages}
@@ -57,10 +62,10 @@ const SecondLevel = ({ menuItem, pathName }: SecondLevelProps) => {
                 pathName={pathName}
               />
             </div>
-          </div>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 

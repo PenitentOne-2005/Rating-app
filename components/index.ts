@@ -13,3 +13,4 @@ export { default as Skills } from './Skills';
 export { default as Sort } from './Sort';
 export { default as ProductList } from './ProductList';
 export { default as Search } from './Search';
+export { default as Input } from './Input';

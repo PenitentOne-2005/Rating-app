@@ -2,13 +2,6 @@
   font-family: sans-serif;
 }
 
-.sectionTitle {
-  font-size: 24px;
-  font-weight: 700;
-  color: #2d3748;
-  margin-bottom: 20px;
-}
-
 .tagsContainer {
   display: flex;
   flex-wrap: wrap;
@@ -16,6 +9,7 @@
 }
 
 .tag {
+  list-style: none;
   display: inline-block;
   padding: 6px 18px;
   background-color: #f8f9fa;

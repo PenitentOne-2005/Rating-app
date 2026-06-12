@@ -1,19 +1,25 @@
 import type { AdvantagesProps } from './interface';
+import { Htag, TagP } from '@/components';
 import classes from './Advantages.module.css';
 
 const Advantages = ({ advantages }: AdvantagesProps) => {
   if (!advantages || advantages.length === 0) return null;
 
   return (
-    <div className={classes.advantagesSection}>
-      <h2 className={classes.sectionTitle}>Преимущества</h2>
+    <section
+      className={classes.advantagesSection}
+      aria-labelledby="advantages-title"
+    >
+      <Htag tag="h2" id="advantages-title" style={{ marginBottom: '15px' }}>
+        Преимущества
+      </Htag>
 
-      <div className={classes.list}>
+      <ul className={classes.list}>
         {advantages.map((advantage, index) => {
           const isLast = index === advantages.length - 1;
 
           return (
-            <div key={advantage.id} className={classes.item}>
+            <li key={advantage.id} className={classes.item}>
               <div className={classes.leftColumn}>
                 <div className={classes.iconWrapper}>
                   <svg
@@ -21,6 +27,7 @@ const Advantages = ({ advantages }: AdvantagesProps) => {
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
                   >
                     <path
                       d="M20 6L9 17L4 12"
@@ -31,18 +38,21 @@ const Advantages = ({ advantages }: AdvantagesProps) => {
                     />
                   </svg>
                 </div>
+
                 {!isLast && <div className={classes.line} />}
               </div>
 
               <div className={classes.rightColumn}>
-                <h3 className={classes.title}>{advantage.title}</h3>
-                <p className={classes.description}>{advantage.description}</p>
+                <Htag tag="h3" style={{ marginBottom: '5px' }}>
+                  {advantage.title}
+                </Htag>
+                <TagP size="medium">{advantage.description}</TagP>
               </div>
-            </div>
+            </li>
           );
         })}
-      </div>
-    </div>
+      </ul>
+    </section>
   );
 };
 

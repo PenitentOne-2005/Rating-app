@@ -39,6 +39,14 @@
   border: 0.0625rem solid var(--primary);
 }
 
+:is(.small, .medium, .ghost, .red, .gray, .green, .primary) {
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: red;
+  }
+}
+
 :is(.red, .green) {
   font-weight: 600;
 }

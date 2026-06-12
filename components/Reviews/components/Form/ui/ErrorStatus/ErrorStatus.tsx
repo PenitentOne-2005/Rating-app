@@ -1,6 +1,7 @@
 const ErrorStatus = ({ errorMessage }: { errorMessage: string }) => {
   return (
     <div
+      role="alert"
       style={{
         marginTop: '15px',
         padding: '12px',

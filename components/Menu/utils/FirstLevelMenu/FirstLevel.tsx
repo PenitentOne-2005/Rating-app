@@ -15,25 +15,30 @@ const FirstLevel = ({ pathName }: FirstLevelProps) => {
    : firstLevelMenu[0].id;
 
   return (
-    <>
-      {firstLevelMenu.map((m) => (
-        <div key={m.route}>
-          <Link href={`/${m.route}`}>
-            <div
+    <ul style={{ listStyle: 'none' }}>
+      {firstLevelMenu.map((m) => {
+        const isActive = m.id === currentActiveCategoryId;
+
+        return (
+          <li key={m.route}>
+            <Link
+              href={`/${m.route}`}
               className={cn(styles.firstLevel, {
-                [styles.firstLevelActive]: m.id === currentActiveCategoryId,
+                [styles.firstLevelActive]: isActive,
               })}
+              aria-current={isActive ? 'page' : undefined}
             >
-              {m.icon}
+              <span aria-hidden="true" className={styles.iconWrapper}>
+                {m.icon}
+              </span>
               <span>{m.name}</span>
-            </div>
-          </Link>
-          {m.id === currentActiveCategoryId && (
-            <SecondLevel menuItem={m} pathName={pathName} />
-          )}
-        </div>
-      ))}
-    </>
+            </Link>
+
+            {isActive && <SecondLevel menuItem={m} pathName={pathName} />}
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 
