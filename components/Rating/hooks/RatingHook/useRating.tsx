@@ -35,11 +35,7 @@ const useRating = (data: useRatingProps) => {
           tabIndex={isEditable ? 0 : -1}
           role={isEditable ? 'radio' : undefined}
           aria-checked={isEditable ? isChecked : undefined}
-          aria-label={
-            isEditable
-              ? `Поставить оценку ${starValue}`
-              : `Оценка ${rating} из 5`
-          }
+          aria-label={isEditable ? `Поставить оценку ${starValue}` : undefined}
           onKeyDown={
             isEditable
               ? (e) => {

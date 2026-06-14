@@ -6,7 +6,7 @@ import styles from './Sidebar.module.css';
 const Sidebar = ({ ...props }: SidebarProps) => {
   return (
     <aside className={styles.sidebar} {...props}>
-      <Link href="/" className={styles.link}>
+      <Link href="/" className={styles.link} aria-label="To home page">
         <svg
           width="159"
           height="43"

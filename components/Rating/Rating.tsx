@@ -47,7 +47,16 @@ const Rating = ({
 
   const ratingArray = useRating(data);
 
-  return <div {...props}>{ratingArray}</div>;
+  return (
+    <div
+      role={isEditable ? 'radiogroup' : undefined}
+      aria-label={isEditable ? 'Рейтинг' : undefined}
+      aria-roledescription={!isEditable ? `Оценка ${rating} из 5` : undefined}
+      {...props}
+    >
+      {ratingArray}
+    </div>
+  );
 };
 
 export default Rating;

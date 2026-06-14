@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import type { ProductCardProps } from './interface';
-import { Button, Rating, Reviews } from '@/components';
+import { Button, Htag, Rating, Reviews } from '@/components';
 import styles from './ProductCard.module.css';
 
 const ProductCard = ({ product, view }: ProductCardProps) => {
@@ -13,10 +13,13 @@ const ProductCard = ({ product, view }: ProductCardProps) => {
 
   return (
     <div className={styles.card}>
-      <div className={styles.logo}>Mock</div>
+      <div className={styles.logo} aria-hidden="true">
+        Mock
+      </div>
 
       <div className={styles.mainInfo}>
-        <div className={styles.title}>{product.title}</div>
+        <Htag tag="h2">{product.title}</Htag>
+
         <div className={styles.tagWrapper}>
           <span className={styles.tag}>Разработка</span>
           <span className={styles.tag}>MockAPI</span>
@@ -39,7 +42,10 @@ const ProductCard = ({ product, view }: ProductCardProps) => {
       </div>
 
       <div className={styles.creditBlock}>
-        <div className={styles.value}>
+        <div
+          className={styles.value}
+          aria-label={`${product.credit.toLocaleString()} рублей`}
+        >
           {product.credit.toLocaleString()} ₽/мес
         </div>
         <div className={styles.label}>в кредит</div>
@@ -59,39 +65,39 @@ const ProductCard = ({ product, view }: ProductCardProps) => {
       {isFullView && (
         <div className={styles.features}>
           {product.characteristics && product.characteristics.length > 0 && (
-            <div className={styles.charList}>
+            <dl className={styles.charList}>
               {product.characteristics.map((characteristic) => (
                 <div className={styles.charItem} key={characteristic.name}>
-                  <span className={styles.charName}>{characteristic.name}</span>
-                  <span className={styles.charDots} />
-                  <span className={styles.charValue}>
-                    {characteristic.value}
-                  </span>
+                  <dt className={styles.charName}>{characteristic.name}</dt>
+
+                  <span className={styles.charDots} aria-hidden="true" />
+
+                  <dd className={styles.charValue}>{characteristic.value}</dd>
                 </div>
               ))}
-            </div>
+            </dl>
           )}
 
-          <div className={styles.prosCons}>
+          <dl className={styles.prosCons}>
             {product.advantages?.map((advantage) => (
               <div
                 className={styles.proBlock}
                 key={advantage.name || advantage.title}
               >
-                <div className={styles.blockTitle}>
+                <dt className={styles.blockTitle}>
                   {advantage.name || advantage.title}
-                </div>
-                <div>{advantage.value || advantage.description}</div>
+                </dt>
+                <dd>{advantage.value || advantage.description}</dd>
               </div>
             ))}
 
             {product.flaws?.map((flaw) => (
               <div className={styles.conBlock} key={flaw.name}>
-                <div className={styles.blockTitle}>{flaw.name}</div>
-                <div>{flaw.value}</div>
+                <dt className={styles.blockTitle}>{flaw.name}</dt>
+                <dd>{flaw.value}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       )}
 
