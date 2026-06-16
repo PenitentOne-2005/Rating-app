@@ -29,7 +29,7 @@ const Search = () => {
         name="search"
         placeholder="Поиск..."
         value={search}
-        style={{ width: '180px' }}
+        style={{ width: '168px' }}
         onChange={(e) => setSearch(e.target.value)}
         aria-label="Поиск по сайту"
       />
