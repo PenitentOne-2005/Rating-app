@@ -1,7 +1,5 @@
 # 📊 Rating App
 
-> 🚧 **In development**
-
 Course rating app, built on Next.js and TypeScript.
 
 ## Tech Stack
@@ -31,10 +29,3 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in the browser.
-
-## Planned
-
-- [ ] Adding and editing courses
-- [ ] Rating and review system
-- [ ] Filtering and searching by courses
-- [ ] Deploy to Vercel
