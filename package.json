@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "debug": "NODE_OPTIONS='--inspect' next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint",
     "stylelint": "stylelint '**/*.{css,scss}' --fix",
