@@ -26,6 +26,11 @@
   margin-inline-start: 0.75rem;
   padding-inline-start: 2rem;
   border-inline-start: 1px solid #dfdfdf;
+
+  & li {
+    list-style: none;
+    margin-bottom: 10px;
+  }
 }
 
 .secondLevelBlock {
@@ -39,7 +44,7 @@
 .thirdLevel {
   display: block;
 
-  margin-block-end: 0.625rem;
+  margin-block-start: 0.625rem;
 
   font-size: 0.875rem;
   font-weight: 500;
