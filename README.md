@@ -29,3 +29,7 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in the browser.
+
+## Live Demo
+
+[rating-app.vercel.app](https://rating-app-ivory-one.vercel.app/)
