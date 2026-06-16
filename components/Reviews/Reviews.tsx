@@ -5,7 +5,7 @@ import classes from './Reviews.module.css';
 
 const Reviews = ({ reviews, onReviewSubmit, productId }: ReviewsProps) => {
   return (
-    <ul className={classes.reviewsWrapper}>
+    <ul id="product-reviews-list" className={classes.reviewsWrapper}>
       {reviews.map((rev) => (
         <li key={rev.id}>
           <article className={classes.reviewItem}>

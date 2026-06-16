@@ -111,10 +111,11 @@ const ProductCard = ({ product, view }: ProductCardProps) => {
           <Button
             appearance="ghost"
             arrow={isReviewsOpen ? 'down' : 'right'}
-            onClick={() => setIsReviewsOpen((isReviewsOpen) => !isReviewsOpen)}
+            onClick={() => setIsReviewsOpen((prev) => !prev)}
             aria-expanded={isReviewsOpen}
+            aria-controls="product-reviews-list"
           >
-            Читать отзывы
+            {isReviewsOpen ? 'Скрыть отзывы' : 'Читать отзывы'}
           </Button>
         </div>
       )}

@@ -4,7 +4,7 @@
   display: inline-block;
 
   box-sizing: border-box;
-  padding: 0.625rem;
+  padding: 0.625rem clamp(0.8rem, 2vw, 1.25rem);
 
   font-size: 0.875rem;
   text-align: center;
@@ -12,18 +12,27 @@
   border: none;
   border-radius: 0.3125rem;
 
-  transition: all 0.2s;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
 }
 
 .ghost {
   color: var(--black);
-  background: none;
+  background: transparent;
   border: 0.0625rem solid var(--gray-light);
 }
 
 :is(.primary, .ghost:hover) {
   color: var(--white);
   background-color: var(--primary);
+  border-color: var(--primary);
 }
 
 :is(.primary svg, .ghost:hover svg) {
@@ -35,8 +44,8 @@
 }
 
 .arrow {
-  display: inline-block;
-  margin-left: 10px;
+  flex-shrink: 0;
+  margin-inline-start: 0.625rem;
 }
 
 .down svg {

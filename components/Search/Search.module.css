@@ -2,22 +2,24 @@
   display: flex;
   position: relative;
   width: 100%;
-  margin-bottom: 20px;
+  margin-block-end: 1.25rem;
 }
 
 .input {
   width: 100%;
-  padding: 8px 40px 8px 12px;
+  padding-block: 0.5rem;
+  padding-inline: 2.5rem 0.75rem;
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
   border-radius: 5px;
   border: 1px solid transparent;
-  font-size: 14px;
+  font-size: 0.875rem;
   outline: none;
   transition: border-color 0.2s;
 
-  &:focus {
+  &:focus-visible {
     border-color: #7653fc;
+    box-shadow: 0 0 0 3px rgba(118, 83, 252, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.05);
   }
 }
 
@@ -26,7 +28,7 @@
   right: 0;
   top: 0;
   height: 100%;
-  width: 36px;
+  width: 2.25rem;
   background: #7653fc;
   border: none;
   border-radius: 0 5px 5px 0;
@@ -37,6 +39,11 @@
   transition: background-color 0.2s;
 
   &:hover {
-    background: #5b39df;
+    background-color: #5b39df;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #7653fc;
+    outline-offset: 2px;
   }
 }

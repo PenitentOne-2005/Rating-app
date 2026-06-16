@@ -1,6 +1,6 @@
 .sortWrapper {
   display: flex;
-  gap: 24px;
+  gap: 1.5rem;
   justify-content: flex-end;
   align-items: center;
 }
@@ -8,27 +8,34 @@
 .sortBtn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: none;
+  gap: 0.5rem;
+  background: transparent;
   border: none;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   color: #2d3748;
   cursor: pointer;
-  transition: color 0.2s ease;
-  padding: 4px 8px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  padding-block: 0.25rem;
+  padding-inline: 0.5rem;
 
   &:hover {
     color: #7653fc;
   }
-}
 
-.sortBtn.active {
-  color: #7653fc;
-  font-weight: 600;
+  &:focus-visible {
+    outline: 2px solid #7653fc;
+    outline-offset: 2px;
+  }
+
+  &[aria-pressed="true"] {
+    color: #7653fc;
+  }
 }
 
 .icon {
-  width: 14px;
-  height: 10px;
+  width: 0.875rem;
+  height: 0.625rem;
+  flex-shrink: 0;
+  fill: currentColor;
 }

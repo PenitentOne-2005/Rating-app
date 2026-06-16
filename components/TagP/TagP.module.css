@@ -4,15 +4,15 @@
 
 .large {
   font-size: 1.125rem;
-  line-height: 161%;
+  line-height: 1.61;
 }
 
 .medium {
   font-size: 1rem;
-  line-height: 150%;
+  line-height: 1.50;
 }
 
 .small {
   font-size: 0.875rem;
-  line-height: 171%;
+  line-height: 1.71;
 }

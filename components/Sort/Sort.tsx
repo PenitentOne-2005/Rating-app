@@ -13,7 +13,7 @@ const Sort = () => {
         type="button"
         appearance="ghost"
         onClick={() => setSort(SortEnum.Rating)}
-        className={`${classes.sortBtn} ${sort === SortEnum.Rating ? classes.active : ''}`}
+        className={classes.sortBtn}
         aria-pressed={sort === SortEnum.Rating}
       >
         <svg

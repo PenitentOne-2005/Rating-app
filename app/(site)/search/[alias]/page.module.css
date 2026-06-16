@@ -1,19 +1,21 @@
 .wrapper {
-  padding: 0 40px 40px 40px;
   font-family: sans-serif;
+  padding-block: 0 2.5rem;
+  padding-inline: clamp(1rem, 3vw, 2.5rem);
 }
 
 .header {
-  margin-bottom: 32px;
+  margin-block-end: 2rem;
+  padding-block-end: 1.25rem;
   border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 20px;
 }
 
 .title {
-  font-size: 26px;
+  font-size: clamp(1.375rem, 1.5vw + 1rem, 1.625rem); 
   font-weight: 700;
   color: #2d3748;
-  margin: 0 0 8px 0;
+  margin: 0;
+  margin-block-end: 0.5rem;
 }
 
 .queryText {
@@ -21,7 +23,7 @@
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: 1rem;
   color: #718096;
   margin: 0;
 }
@@ -33,7 +35,7 @@
 .items {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 2.5rem;
 }
 
 .emptyState {
@@ -42,24 +44,29 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 60px 20px;
+
+  padding-block: 3.75rem;
+  padding-inline: 1.25rem;
+
   background: #f8fafc;
   border: 1px dashed #cbd5e1;
   border-radius: 8px;
-  margin-top: 20px;
+
+  margin-block-start: 1.25rem;
 
   & h3 {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
     color: #4a5568;
-    margin: 0 0 10px 0;
+    margin: 0;
+    margin-block-end: 0.625rem;
   }
 
   & p {
-    font-size: 15px;
+    font-size: 0.9375rem;
     color: #718096;
     margin: 0;
-    max-width: 400px;
+    max-width: 25rem;
     line-height: 1.5;
   }
 }
