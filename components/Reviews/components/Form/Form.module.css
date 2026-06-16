@@ -1,29 +1,38 @@
 .form {
-  margin-top: 25px;
+  margin-block-start: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 0.9375rem;
 }
 
 .row {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 1.25rem;
 }
 
 .textarea {
-  padding: 12px;
+  padding: 0.75rem;
   border: 1px solid #e2e8f0;
   border-radius: 4px;
   resize: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
 }
 
 .actions {
   display: flex;
   align-items: center;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 0.9375rem;
 }
 
 .notice {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #718096;
+  line-height: 1.4;
 }

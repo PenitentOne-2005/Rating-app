@@ -1,5 +1,6 @@
 .searchWrapper {
   display: flex;
+  gap: 5px;
   position: relative;
   width: 100%;
   margin-block-end: 1.25rem;
@@ -18,8 +19,8 @@
   transition: border-color 0.2s;
 
   &:focus-visible {
-    border-color: #7653fc;
-    box-shadow: 0 0 0 3px rgba(118, 83, 252, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.05);
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
   }
 }
 

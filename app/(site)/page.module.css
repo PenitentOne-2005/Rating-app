@@ -26,5 +26,16 @@
 
   & li {
     list-style: none;
+    display: inline-flex;
+  }
+
+  & a {
+    display: inline-flex;
+
+    &:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
   }
 }

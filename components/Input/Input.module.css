@@ -18,9 +18,8 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
   &:focus-visible {
-    outline: none;
-    border-color: #3182ce;
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.4);
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
   }
 }
 

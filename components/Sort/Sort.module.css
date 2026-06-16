@@ -24,8 +24,9 @@
   }
 
   &:focus-visible {
-    outline: 2px solid #7653fc;
-    outline-offset: 2px;
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 3px;
   }
 
   &[aria-pressed="true"] {

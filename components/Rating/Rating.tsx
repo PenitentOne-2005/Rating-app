@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import type { RatingProps } from './interface';
 import { useRating } from './hooks';
+import styles from './Rating.module.css';
 
 const Rating = ({
   isEditable = false,
@@ -49,6 +50,7 @@ const Rating = ({
 
   return (
     <div
+      className={styles.container}
       role={isEditable ? 'radiogroup' : undefined}
       aria-label={isEditable ? 'Рейтинг' : undefined}
       aria-roledescription={!isEditable ? `Оценка ${rating} из 5` : undefined}
