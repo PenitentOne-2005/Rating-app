@@ -6,7 +6,7 @@ const getMenu: getMenuProps = async (firstCategory) => {
   try {
     const res = await fetch(API.menu, {
       method: 'GET',
-      next: { revalidate: 10 },
+      next: { revalidate: 3600 },
     });
 
     if (!res.ok) {

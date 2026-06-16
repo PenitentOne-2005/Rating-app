@@ -11,7 +11,7 @@ const getPage: GetPageType = async (alias?: string, category?: string) => {
   try {
     const URL = alias ? `${API.pages}?alias=${alias}` : `${API.pages}`;
 
-    const res = await fetch(URL, { method: 'GET', next: { revalidate: 10 } });
+    const res = await fetch(URL, { method: 'GET', next: { revalidate: 3600 } });
 
     if (!res.ok) return null;
 
