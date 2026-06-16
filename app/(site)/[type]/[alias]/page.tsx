@@ -1,16 +1,13 @@
 export { generateMetadata } from './generateMetadata';
 
+import type { CoursePageProps } from './interface';
 import { notFound } from 'next/navigation';
 import { getPage } from '@/api';
 import { CourseContextProvider } from '@/app/context';
 import { Advantages, ProductList, Skills, Sort } from '@/components';
 import classes from './page.module.css';
 
-const CategoryPage = async ({
-  params,
-}: {
-  params: { type: string; alias: string };
-}) => {
+const CategoryPage = async ({ params }: CoursePageProps) => {
   const { type, alias } = await params;
 
   if (!alias) {
