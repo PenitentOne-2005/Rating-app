@@ -39,7 +39,7 @@ const useRating = (data: useRatingProps) => {
           onKeyDown={
             isEditable
               ? (e) => {
-                  if (e.code === 'Space') {
+                  if (e.code === 'Enter') {
                     e.preventDefault();
                     handleSpace(starValue);
                   }
