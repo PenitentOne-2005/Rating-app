@@ -1,5 +1,6 @@
 export interface CategoryProps {
-  params: {
+  params: Promise<{
     type: string;
-  };
+    alias: string;
+  }>;
 }
