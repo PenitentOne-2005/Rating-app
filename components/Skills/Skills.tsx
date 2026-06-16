@@ -7,7 +7,7 @@ const Skills = ({ skills }: SkillsProps) => {
 
   return (
     <section className={classes.skillsSection} aria-labelledby="skills-title">
-      <Htag tag="h2" id="skills-title">
+      <Htag tag="h2" id="skills-title" style={{ marginBottom: '10px' }}>
         Получаемые навыки
       </Htag>
 
