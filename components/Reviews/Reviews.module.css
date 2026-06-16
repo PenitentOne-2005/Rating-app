@@ -19,7 +19,7 @@
 
   &:last-child {
     border-bottom: none;
-    margin-bottom: 0;
+    margin-bottom: 0.625rem;
     padding-bottom: 0;
   }
 }
@@ -28,7 +28,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-block-end: 0.625rem;
 }
 
 .ratingDate {
