@@ -15,7 +15,7 @@
   grid-column: logo;
   width: 4.375rem;
   height: 4.375rem;
-  background: #3b82f6;
+  background: #3b5998;
   border-radius: 8px;
   display: inline-flex;
   align-items: center;
@@ -84,18 +84,17 @@
 }
 
 .label {
-  color: #718096;
   margin-block-start: 0.25rem;
 }
 
 .oldPrice {
   text-decoration: line-through;
-  color: #a0aec0;
   margin-inline-start: 0.5rem;
 }
 
 :is(.label, .oldPrice) {
   font-size: 0.75rem;
+  color: #64748b;
 }
 
 /* Разделитель и описание */

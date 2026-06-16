@@ -30,7 +30,7 @@ const Home = () => {
       />
 
       <section className={classes.popular} aria-labelledby="popular-title">
-        <Htag tag="h3" id="popular-title">
+        <Htag tag="h2" id="popular-title">
           Популярные направления:
         </Htag>
 

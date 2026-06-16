@@ -122,7 +122,7 @@ const Form = ({ productId, onReviewSubmit }: FormProps) => {
         })}
         placeholder="Текст отзыва"
         rows={4}
-        className={styles.textarea}
+        className={`${styles.textarea} ${errors.description ? styles.textareaError : ''}`}
         disabled={isSubmitting}
         aria-label="Текст отзыва"
         aria-invalid={!!errors.description}

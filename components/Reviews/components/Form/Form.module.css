@@ -24,6 +24,10 @@
   }
 }
 
+.textareaError {
+  border-color: #e53e3e;
+}
+
 .actions {
   display: flex;
   align-items: center;
